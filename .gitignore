@@ -1,0 +1,9 @@
+# Visual Studio project files
+LinearAlgebraRelease.csproj
+
+# Visual Studio obj folder
+obj
+
+# Debug files
+*.pdb
+*.json

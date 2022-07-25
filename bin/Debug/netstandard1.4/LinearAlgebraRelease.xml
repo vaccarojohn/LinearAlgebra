@@ -1,0 +1,1088 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>LinearAlgebraRelease</name>
+    </assembly>
+    <members>
+        <member name="T:LinearAlgebra.Polynomial">
+            <summary>
+            A list of coefficients representing a polynomial function
+            </summary>
+        </member>
+        <member name="P:LinearAlgebra.Polynomial.Item(System.Int32)">
+            <summary>
+            The method of getting or changing a coefficient in the polynomial
+            </summary>
+            <param name="n">The position of the coefficient (0 inclusive)</param>
+        </member>
+        <member name="P:LinearAlgebra.Polynomial.Degree">
+            <summary>
+            The degree of the polynomial
+            </summary>
+        </member>
+        <member name="M:LinearAlgebra.Polynomial.op_UnaryNegation(LinearAlgebra.Polynomial)">
+            <summary>
+            Flips the sign on all polynomial coefficients
+            </summary>
+        </member>
+        <member name="M:LinearAlgebra.Polynomial.op_Addition(LinearAlgebra.Polynomial,LinearAlgebra.Polynomial)">
+            <summary>
+            Returns a polynomial representing the sum of two polynomials
+            </summary>
+        </member>
+        <member name="M:LinearAlgebra.Polynomial.op_Subtraction(LinearAlgebra.Polynomial,LinearAlgebra.Polynomial)">
+            <summary>
+            Returns a polynomial representing the difference between two polynomials
+            </summary>
+        </member>
+        <member name="M:LinearAlgebra.Polynomial.op_Multiply(LinearAlgebra.Polynomial,System.Double)">
+            <summary>
+            Returns a polynomial representing the multiplication of a polynomial by a constant
+            </summary>
+        </member>
+        <member name="M:LinearAlgebra.Polynomial.op_Multiply(System.Double,LinearAlgebra.Polynomial)">
+            <summary>
+            Returns a polynomial representing the multiplication of a polynomial by a constant
+            </summary>
+        </member>
+        <member name="M:LinearAlgebra.Polynomial.op_Multiply(LinearAlgebra.Polynomial,LinearAlgebra.Polynomial)">
+            <summary>
+            Returns a polynomial representing the multiplication of two polynomials
+            </summary>
+        </member>
+        <member name="M:LinearAlgebra.Polynomial.op_Division(LinearAlgebra.Polynomial,System.Double)">
+            <summary>
+            Returns a polynomial representing the multiplication of a polynomial with the inverse of a constant
+            </summary>
+        </member>
+        <member name="M:LinearAlgebra.Polynomial.op_Division(LinearAlgebra.Polynomial,LinearAlgebra.Polynomial)">
+            <summary>
+            Returns a polynomial representing the quotient of two polynomials (Note: The operator will throw an exceptionn if the first polynomial is not divisible by the second one.)
+            </summary>
+        </member>
+        <member name="M:LinearAlgebra.Polynomial.op_Equality(LinearAlgebra.Polynomial,LinearAlgebra.Polynomial)">
+            <summary>
+            Determines whether two polynomials are equal (Note: Polynomials must have the same degree and coefficients to be considered equal.)
+            </summary>
+        </member>
+        <member name="M:LinearAlgebra.Polynomial.#ctor(System.Int32)">
+            <summary>
+            Initializes a polynomial to a specified degree while filling coefficients with 0s
+            </summary>
+            <param name="degree">The degree of the new polynomial</param>
+        </member>
+        <member name="M:LinearAlgebra.Polynomial.#ctor(System.Double[])">
+            <summary>
+            Initializes a polynomial with specified coefficients
+            </summary>
+            <param name="values">Coefficients listed in increasing degree order (Ex: 3x + 4x^2 - 7x^4 would be initialized as new Polynomial(0, 3, 4, 0, -7))</param>
+        </member>
+        <member name="M:LinearAlgebra.Polynomial.Evaluate(System.Double)">
+            <summary>
+            Evaluates a polynomial for a given value of x
+            </summary>
+            <param name="x">The x-value of the polynomial</param>
+        </member>
+        <member name="M:LinearAlgebra.Polynomial.Evaluate(LinearAlgebra.ComplexNumber)">
+            <summary>
+            Evaluates a polynomial for a given value of x
+            </summary>
+            <param name="x">The x-value of the polynomial</param>
+        </member>
+        <member name="M:LinearAlgebra.Polynomial.DivideByRoot(System.Double,System.Boolean)">
+            <summary>
+            Attempts to divide a polynomial by a root
+            </summary>
+            <param name="r">The root of the polynomial</param>
+            <param name="ignoreRemainder">When this value is false, an exception will be thrown if the polynomial is not divisible by the root.</param>
+        </member>
+        <member name="M:LinearAlgebra.Polynomial.DivideByRoot(LinearAlgebra.ComplexNumber,System.Boolean)">
+            <summary>
+            Attempts to divide a polynomial by a root
+            </summary>
+            <param name="r">The root of the polynomial</param>
+            <param name="ignoreRemainder">When this value is false, an exception will be thrown if the polynomial is not divisible by the root.</param>
+        </member>
+        <member name="M:LinearAlgebra.Polynomial.Derivative">
+            <summary>
+            Returns the derivative of the polynomial
+            </summary>
+        </member>
+        <member name="M:LinearAlgebra.Polynomial.Antiderivative">
+            <summary>
+            Returns the anti-derivative of the polynomial (Note: The final constant term is set to 0 by default.)
+            </summary>
+        </member>
+        <member name="M:LinearAlgebra.Polynomial.FindRealRoots(LinearAlgebra.ComplexNumber[])">
+            <summary>
+            Returns a list of real roots of the polynomial using Newton's Method (Note: The same roots can be listed multiple times depending on their respective multiplicities.)
+            </summary>
+            <param name="knownRoots">Any roots (real or complex) that do not need to be found with Newton's Method (Note: For imaginary roots, do NOT list their conjugates here.)</param>
+        </member>
+        <member name="M:LinearAlgebra.Polynomial.FindComplexRoots(LinearAlgebra.ComplexNumber[])">
+            <summary>
+            Returns a list of all roots of the polynomial using Newton's Method (Note: The same roots can be listed multiple times depending on their respective multiplicities.)
+            </summary>
+            <param name="knownRoots">Any roots (real or complex) that do not need to be found with Newton's Method (Note: For imaginary roots, do NOT list their conjugates here.)</param>
+        </member>
+        <member name="M:LinearAlgebra.Polynomial.ToVector">
+            <summary>
+            Converts the polynomial to a vector of coefficients
+            </summary>
+        </member>
+        <member name="T:LinearAlgebra.ComplexNumber">
+            <summary>
+            A complex number consisting of a real and imaginary part
+            </summary>
+        </member>
+        <member name="F:LinearAlgebra.ComplexNumber.a">
+            <summary>
+            The real part of the complex number
+            </summary>
+        </member>
+        <member name="F:LinearAlgebra.ComplexNumber.b">
+            <summary>
+            The imaginary part of the complex number
+            </summary>
+        </member>
+        <member name="F:LinearAlgebra.ComplexNumber.r">
+            <summary>
+            The magnitude of the complex number
+            </summary>
+        </member>
+        <member name="F:LinearAlgebra.ComplexNumber.theta">
+            <summary>
+            The angle with the x-axis in the complex plane from -π [-pi] to π [pi], inclusive (expressed in radians)
+            </summary>
+        </member>
+        <member name="M:LinearAlgebra.ComplexNumber.#ctor(System.Double,System.Double,System.Boolean)">
+            <summary>
+            Initializes a complex number with two parts
+            </summary>
+            <param name="a">The real part of the number if initializing in rectangular form or the magnitude of the number if initializing in polar form</param>
+            <param name="b">The imaginary part of the number if initializing in rectangular form or the angle (in radians) of the number if initializing in polar form</param>
+            <param name="polar">Whether to initializes the number in polar or rectangular form form</param>
+        </member>
+        <member name="F:LinearAlgebra.ComplexNumber.Zero">
+            <summary>
+            Represents the number 0 as a complex number
+            </summary>
+        </member>
+        <member name="F:LinearAlgebra.ComplexNumber.i">
+            <summary>
+            Represents the number i as a complex number
+            </summary>
+        </member>
+        <member name="M:LinearAlgebra.ComplexNumber.Sqrt(System.Double)">
+            <summary>
+            Returns the square root of a real number expressed as a complex number
+            </summary>
+        </member>
+        <member name="M:LinearAlgebra.ComplexNumber.Sqrt(LinearAlgebra.ComplexNumber)">
+            <summary>
+            Returns the square root of a complex number (where the angle is reduced in half)
+            </summary>
+            <param name="a"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LinearAlgebra.ComplexNumber.Pow(LinearAlgebra.ComplexNumber,System.Double)">
+            <summary>
+            Raises a complex number to a specified real power
+            </summary>
+            <param name="a">The complex base</param>
+            <param name="b">The real exponent</param>
+            <returns></returns>
+        </member>
+        <member name="M:LinearAlgebra.ComplexNumber.Round(LinearAlgebra.ComplexNumber,System.Int32)">
+            <summary>
+            Rounds a complex number to a specified number of digits
+            </summary>
+            <param name="value">The complex number to be rounded</param>
+            <param name="digits">The number of digits</param>
+        </member>
+        <member name="M:LinearAlgebra.ComplexNumber.op_UnaryNegation(LinearAlgebra.ComplexNumber)">
+            <summary>
+            Flips the sign on both the real and imaginary parts of the complex number
+            </summary>
+        </member>
+        <member name="M:LinearAlgebra.ComplexNumber.op_Addition(LinearAlgebra.ComplexNumber,LinearAlgebra.ComplexNumber)">
+            <summary>
+            Returns a complex number representing the sum of two other complex numbers
+            </summary>
+        </member>
+        <member name="M:LinearAlgebra.ComplexNumber.op_Addition(System.Double,LinearAlgebra.ComplexNumber)">
+            <summary>
+            Returns a complex number representing the sum of a real and a complex number
+            </summary>
+        </member>
+        <member name="M:LinearAlgebra.ComplexNumber.op_Addition(LinearAlgebra.ComplexNumber,System.Double)">
+            <summary>
+            Returns a complex number representing the sum of a real and a complex number
+            </summary>
+        </member>
+        <member name="M:LinearAlgebra.ComplexNumber.op_Subtraction(LinearAlgebra.ComplexNumber,LinearAlgebra.ComplexNumber)">
+            <summary>
+            Returns a complex number representing the difference between two complex numbers
+            </summary>
+        </member>
+        <member name="M:LinearAlgebra.ComplexNumber.op_Subtraction(System.Double,LinearAlgebra.ComplexNumber)">
+            <summary>
+            Returns a complex number representing the difference between a real and a complex number
+            </summary>
+        </member>
+        <member name="M:LinearAlgebra.ComplexNumber.op_Subtraction(LinearAlgebra.ComplexNumber,System.Double)">
+            <summary>
+            Returns a complex number representing the difference between a complex and a real number
+            </summary>
+        </member>
+        <member name="M:LinearAlgebra.ComplexNumber.op_Multiply(LinearAlgebra.ComplexNumber,System.Double)">
+            <summary>
+            Returns a complex number representing the product of a complex number and a real number
+            </summary>
+        </member>
+        <member name="M:LinearAlgebra.ComplexNumber.op_Multiply(System.Double,LinearAlgebra.ComplexNumber)">
+            <summary>
+            Returns a complex number representing the product of a complex number and a real number
+            </summary>
+        </member>
+        <member name="M:LinearAlgebra.ComplexNumber.op_Multiply(LinearAlgebra.ComplexNumber,LinearAlgebra.ComplexNumber)">
+            <summary>
+            Returns a complex number representing the product of two complex numbers
+            </summary>
+        </member>
+        <member name="M:LinearAlgebra.ComplexNumber.op_Division(LinearAlgebra.ComplexNumber,System.Double)">
+            <summary>
+            Returns a complex number representing the quotient of a complex number and a real number
+            </summary>
+        </member>
+        <member name="M:LinearAlgebra.ComplexNumber.op_Division(System.Double,LinearAlgebra.ComplexNumber)">
+            <summary>
+            Returns a complex number representing the quotient of a real number and a complex number
+            </summary>
+        </member>
+        <member name="M:LinearAlgebra.ComplexNumber.op_Division(LinearAlgebra.ComplexNumber,LinearAlgebra.ComplexNumber)">
+            <summary>
+            Returns a complex number representing the quotient of two complex numbers
+            </summary>
+        </member>
+        <member name="M:LinearAlgebra.ComplexNumber.op_Equality(LinearAlgebra.ComplexNumber,LinearAlgebra.ComplexNumber)">
+            <summary>
+            Determines whether two complex numbers are equal
+            </summary>
+        </member>
+        <member name="M:LinearAlgebra.ComplexNumber.op_Implicit(System.Double)~LinearAlgebra.ComplexNumber">
+            <summary>
+            Converts a real number to a complex number with an imaginary part of 0
+            </summary>
+        </member>
+        <member name="M:LinearAlgebra.ComplexNumber.op_Explicit(LinearAlgebra.ComplexNumber)~System.Double">
+            <summary>
+            Converts a complex number to a real number by dropping the imaginary part 
+            </summary>
+        </member>
+        <member name="P:LinearAlgebra.ComplexNumber.Conjugate">
+            <summary>
+            Returns the conjugate of the complex number
+            </summary>
+        </member>
+        <member name="P:LinearAlgebra.ComplexNumber.IsReal">
+            <summary>
+            Determines whether the complex number is also a real number
+            </summary>
+        </member>
+        <member name="M:LinearAlgebra.ComplexNumber.Pow(System.Double)">
+            <summary>
+            Raises the complex number to a real power
+            </summary>
+            <param name="a">The power, or exponent</param>
+        </member>
+        <member name="T:LinearAlgebra.LinearAlgebraException">
+            <summary>
+            The main type of arithmetic exception thrown by linear algebra methods
+            </summary>
+        </member>
+        <member name="T:LinearAlgebra.LinearAlgebraExtensions">
+            <summary>
+            An extension class providing a clamp method for any IComparable data type
+            </summary>
+        </member>
+        <member name="M:LinearAlgebra.LinearAlgebraExtensions.Clamp``1(``0,``0,``0)">
+            <summary>
+            Constrains an object between a minimum and maximum value based on its comparison method
+            </summary>
+        </member>
+        <member name="T:LinearAlgebra.Eigenpair">
+            <summary>
+            A struct providing a representation of the eigenvector(s), eigenspace, and algebraic/geometric multiplicities associated with a particular real eigenvalue
+            </summary>
+        </member>
+        <member name="F:LinearAlgebra.Eigenpair.eigenvalue">
+            <summary>
+            The eigenvalue of the pair
+            </summary>
+        </member>
+        <member name="F:LinearAlgebra.Eigenpair.eigenvectors">
+            <summary>
+            A list of linearly independent eigenvectors corresponding to the given eigenvalue
+            </summary>
+        </member>
+        <member name="F:LinearAlgebra.Eigenpair.eigenspace">
+            <summary>
+            The eigenspace associated with the eigenvalue
+            </summary>
+        </member>
+        <member name="F:LinearAlgebra.Eigenpair.almu">
+            <summary>
+            The algebraic multiplicity of the eigenvalue, or the multiplicity of the eigenvalue in a matrix's characteristic polynomial
+            </summary>
+        </member>
+        <member name="F:LinearAlgebra.Eigenpair.gemu">
+            <summary>
+            The geometric multiplicity of the eigenvalue, or dimension of its eigenspace
+            </summary>
+        </member>
+        <member name="M:LinearAlgebra.Eigenpair.#ctor(System.Double,LinearAlgebra.Space,System.Int32)">
+            <summary>
+            Initializes an eigenpair with a particular eigenvalue, eigenspace, and algebraic multiplicity
+            </summary>
+            <param name="eigenvalue">The eigenvalue of the pair</param>
+            <param name="eigenspace">The eigenspace of the eigenvalue</param>
+            <param name="almu">The algebraic multiplicity of the eigenvalue</param>
+        </member>
+        <member name="T:LinearAlgebra.ComplexEigenpair">
+            <summary>
+            A struct providing a representation of the eigenvector(s) and algebraic/geometric multiplicities associated with a particular complex eigenvalue
+            </summary>
+        </member>
+        <member name="F:LinearAlgebra.ComplexEigenpair.eigenvalue">
+            <summary>
+            The eigenvalue of the pair
+            </summary>
+        </member>
+        <member name="F:LinearAlgebra.ComplexEigenpair.eigenvectors">
+            <summary>
+            A list of linearly independent eigenvectors corresponding to the given eigenvalue
+            </summary>
+        </member>
+        <member name="F:LinearAlgebra.ComplexEigenpair.almu">
+            <summary>
+            The algebraic multiplicity of the eigenvalue, or the multiplicity of the eigenvalue in a matrix's characteristic polynomial
+            </summary>
+        </member>
+        <member name="F:LinearAlgebra.ComplexEigenpair.gemu">
+            <summary>
+            The geometric multiplicity of the eigenvalue, or the number of linearly independent eigenvectors associated with it
+            </summary>
+        </member>
+        <member name="M:LinearAlgebra.ComplexEigenpair.#ctor(LinearAlgebra.ComplexNumber,LinearAlgebra.ComplexVector[],System.Int32)">
+            <summary>
+            Initializes a complex eigenpair with a particular eigenvalue, list of eigenvectors, and algebraic multiplicity
+            </summary>
+            <param name="eigenvalue">The eigenvalue of the pair</param>
+            <param name="eigenvectors">The eigenvectors associated with the eigenvalue</param>
+            <param name="almu">The algebraic multiplicity of the eigenvalue</param>
+        </member>
+        <member name="T:LinearAlgebra.Matrix">
+            <summary>
+            A two-dimensional array representing an m x n matrix
+            </summary>
+        </member>
+        <member name="P:LinearAlgebra.Matrix.Item(System.Int32,System.Int32)">
+            <summary>
+            The method of getting or changing a value at a specified position of the matrix
+            </summary>
+            <param name="row">The row number of the value to get or set (0 inclusive)</param>
+            <param name="col">The column number of the value to get or set (0 inclusive)</param>
+        </member>
+        <member name="P:LinearAlgebra.Matrix.Elements">
+            <summary>
+            Returns the elements of the matrix as a two-dimensional double array
+            </summary>
+        </member>
+        <member name="P:LinearAlgebra.Matrix.Rows">
+            <summary>
+            The number of rows in the matrix
+            </summary>
+        </member>
+        <member name="P:LinearAlgebra.Matrix.Cols">
+            <summary>
+            The number of columns in the matrix
+            </summary>
+        </member>
+        <member name="P:LinearAlgebra.Matrix.Rank">
+            <summary>
+            Returns the rank of the matrix, or the dimension of its image
+            </summary>
+        </member>
+        <member name="P:LinearAlgebra.Matrix.Nullity">
+            <summary>
+            Returns the nullity of the matrix, or the dimension of its kernel
+            </summary>
+        </member>
+        <member name="P:LinearAlgebra.Matrix.Transpose">
+            <summary>
+            Returns the transpose of the matrix
+            </summary>
+        </member>
+        <member name="P:LinearAlgebra.Matrix.IsSquare">
+            <summary>
+            A boolean that is true when the matrix is square (i.e. the number of rows is equivalent to the number of columns)
+            </summary>
+        </member>
+        <member name="P:LinearAlgebra.Matrix.IsIdentity">
+            <summary>
+            A boolean that is true when the matrix is an identity matrix (Note: The matrix must be square in order for this value to be true.)
+            </summary>
+        </member>
+        <member name="P:LinearAlgebra.Matrix.IsInvertible">
+            <summary>
+            A boolean that is true when the matrix can be inverted
+            </summary>
+        </member>
+        <member name="P:LinearAlgebra.Matrix.IsOrthogonal">
+            <summary>
+            A boolean that is true when the matrix is orthogonal (i.e. when the matrix is square and its transformation preserves magnitude of vectors)
+            </summary>
+        </member>
+        <member name="P:LinearAlgebra.Matrix.IsSymmetric">
+            <summary>
+            A boolean that is true when the matrix is symmetric (i.e. the matrix is equivalent to its transpose)
+            </summary>
+        </member>
+        <member name="P:LinearAlgebra.Matrix.IsSkewSymmetric">
+            <summary>
+            A boolean that is true when the matrix is skew-symmetric (i.e. the matrix is equivalent to its transpose multiplied by -1)
+            </summary>
+        </member>
+        <member name="P:LinearAlgebra.Matrix.IsDiagonal">
+            <summary>
+            A boolean that is true when the matrix is diagonal (i.e. any non-zero values in the matrix are located in diagonal positions)
+            </summary>
+        </member>
+        <member name="P:LinearAlgebra.Matrix.IsDiagonalizable">
+            <summary>
+            A boolean that is true if the matrix is similar to a diagonal matrix
+            </summary>
+        </member>
+        <member name="P:LinearAlgebra.Matrix.IsDiagonalizableToRotationMatrix">
+            <summary>
+            A boolean that is true if the matrix is similar to a rotation matrix
+            </summary>
+        </member>
+        <member name="M:LinearAlgebra.Matrix.Zero(System.Int32)">
+            <summary>
+            Initializes a zero square matrix in a specified number of dimensions
+            </summary>
+            <param name="dim">The dimension of the matrix</param>
+        </member>
+        <member name="M:LinearAlgebra.Matrix.Identity(System.Int32)">
+            <summary>
+            Initializes a matrix representing the identity matrix in a specified number of dimensions
+            </summary>
+            <param name="dim">The dimension of the matrix</param>
+        </member>
+        <member name="M:LinearAlgebra.Matrix.Scale(System.Int32,System.Int32)">
+            <summary>
+            Initializes a matrix representing a scaling matrix in a specified number of dimensions
+            </summary>
+            <param name="dim">The dimension of the matrix</param>
+            <param name="scaleFactor">The scale factor of the matrix</param>
+            <returns></returns>
+        </member>
+        <member name="M:LinearAlgebra.Matrix.Projection(LinearAlgebra.Space)">
+            <summary>
+            Initializes a matrix representing orthogonal projection onto a subspace
+            </summary>
+            <param name="subspace">The subspace onto which vectors can be projected</param>
+        </member>
+        <member name="M:LinearAlgebra.Matrix.Reflection(LinearAlgebra.Space)">
+            <summary>
+            Initializes a matrix representing reflection across a subspace
+            </summary>
+            <param name="subspace">The subspace over which vectors can be reflected</param>
+        </member>
+        <member name="M:LinearAlgebra.Matrix.Rotation(LinearAlgebra.Space,System.Double)">
+            <summary>
+            Initializes a matrix representing counterclockwise rotation about a subspace
+            </summary>
+            <param name="subspace">The subspace about which vectors can be rotated (Note: The dimension of the subspace should be 2 less than the dimension of vectors in the subspace.)</param>
+            <param name="angle">The angle of rotation in radians</param>
+        </member>
+        <member name="M:LinearAlgebra.Matrix.Shear(System.Int32,System.Int32,System.Int32,System.Double)">
+            <summary>
+            Initializes a matrix representing a shear
+            </summary>
+            <param name="dim">The dimension of the matrix</param>
+            <param name="row">The row number of the shear value (0 inclusive)</param>
+            <param name="col">The column number of the shear value (0 inclusive)</param>
+            <param name="value">The value for the shear</param>
+        </member>
+        <member name="M:LinearAlgebra.Matrix.Round(LinearAlgebra.Matrix,System.Int32)">
+            <summary>
+            Rounds all values of a matrix to a specified number of digits
+            </summary>
+            <param name="a">The matrix to round</param>
+            <param name="digits">The number of digits</param>
+        </member>
+        <member name="M:LinearAlgebra.Matrix.op_UnaryNegation(LinearAlgebra.Matrix)">
+            <summary>
+            Flips the sign of all values in a matrix
+            </summary>
+        </member>
+        <member name="M:LinearAlgebra.Matrix.op_Addition(LinearAlgebra.Matrix,LinearAlgebra.Matrix)">
+            <summary>
+            Returns a matrix representing the sum of two matrices
+            </summary>
+        </member>
+        <member name="M:LinearAlgebra.Matrix.op_Subtraction(LinearAlgebra.Matrix,LinearAlgebra.Matrix)">
+            <summary>
+            Returns a matrix representing the difference of two matrices
+            </summary>
+        </member>
+        <member name="M:LinearAlgebra.Matrix.op_Multiply(System.Double,LinearAlgebra.Matrix)">
+            <summary>
+            Returns a matrix representing the multiplication of a scalar and a matrix
+            </summary>
+        </member>
+        <member name="M:LinearAlgebra.Matrix.op_Multiply(LinearAlgebra.Matrix,System.Double)">
+            <summary>
+            Returns a matrix representing the multiplication of a scalar and a matrix
+            </summary>
+        </member>
+        <member name="M:LinearAlgebra.Matrix.op_Multiply(LinearAlgebra.Matrix,LinearAlgebra.Vector)">
+            <summary>
+            Returns a matrix representing the multiplication of a matrix and a vector (Note: The dimension of the vector must be equivalent to the number of columns in the matrix.)
+            </summary>
+        </member>
+        <member name="M:LinearAlgebra.Matrix.op_Multiply(LinearAlgebra.Matrix,LinearAlgebra.Matrix)">
+            <summary>
+            Returns a matrix representing the multiplication of two matrices (Note: The first matrix must have a number of columns equivalent to the number of rows in the second matrix.)
+            </summary>
+        </member>
+        <member name="M:LinearAlgebra.Matrix.op_Division(LinearAlgebra.Matrix,System.Double)">
+            <summary>
+            Returns a matrix representing the quotient of a matrix and a scalar
+            </summary>
+        </member>
+        <member name="M:LinearAlgebra.Matrix.op_Equality(LinearAlgebra.Matrix,LinearAlgebra.Matrix)">
+            <summary>
+            Determines whether two matrices are equal (Note: Matrices must have the same number of rows and columns and the same value at every position to be considered equal.)
+            </summary>
+        </member>
+        <member name="M:LinearAlgebra.Matrix.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Initializes an empty matrix with zero values
+            </summary>
+            <param name="m">The number of rows in the matrix</param>
+            <param name="n">The number of columns in the matrix</param>
+        </member>
+        <member name="M:LinearAlgebra.Matrix.#ctor(System.Double[0:,0:],System.Boolean)">
+            <summary>
+            Initializes a matrix with the elements of a two-dimensional array
+            </summary>
+            <param name="elements">The elements of the matrix</param>
+            <param name="rows">Whether the elements in the array are formatted as rows or columns (e.g. { { first row }, { second row }, ... } vs. { { first col }, { second col }, ... } })</param>
+        </member>
+        <member name="M:LinearAlgebra.Matrix.#ctor(System.Double[])">
+            <summary>
+            Initializes a matrix with values in an array on the diagonals
+            </summary>
+            <param name="diagonals">The diagonals of the matrix</param>
+        </member>
+        <member name="M:LinearAlgebra.Matrix.AddRow(System.Int32,System.Double[])">
+            <summary>
+            Adds a row to the matrix
+            </summary>
+            <param name="row">The row number of the new row (0 inclusive)</param>
+            <param name="elements">The elements of the new row</param>
+        </member>
+        <member name="M:LinearAlgebra.Matrix.AddCol(System.Int32,System.Double[])">
+            <summary>
+            Adds a column to the matrix
+            </summary>
+            <param name="col">The column number of the new column (0 inclusive)</param>
+            <param name="elements">The elements of the new column</param>
+        </member>
+        <member name="M:LinearAlgebra.Matrix.RemoveRow(System.Int32)">
+            <summary>
+            Removes a row from the matrix
+            </summary>
+            <param name="row">The row number of the row to remove (0 inclusive)</param>
+        </member>
+        <member name="M:LinearAlgebra.Matrix.RemoveCol(System.Int32)">
+            <summary>
+            Removes a column from the matrix
+            </summary>
+            <param name="col">The column number of the column to remove (0 inclusive)</param>
+        </member>
+        <member name="M:LinearAlgebra.Matrix.Trace">
+            <summary>
+            Returns the trace of a square matrix, or the sum of its diagonals
+            </summary>
+        </member>
+        <member name="M:LinearAlgebra.Matrix.Determinant">
+            <summary>
+            Returns the determinant of a square matrix (computed using row-reduction)
+            </summary>
+        </member>
+        <member name="M:LinearAlgebra.Matrix.Inverse">
+            <summary>
+            Returns the inverse of the matrix
+            </summary>
+        </member>
+        <member name="M:LinearAlgebra.Matrix.RREF">
+            <summary>
+            Returns a new matrix representing the reduced row echelon form of this matrix
+            </summary>
+        </member>
+        <member name="M:LinearAlgebra.Matrix.Image">
+            <summary>
+            Returns the image of the matrix
+            </summary>
+        </member>
+        <member name="M:LinearAlgebra.Matrix.Kernel">
+            <summary>
+            Returns the kernel of the matrix
+            </summary>
+        </member>
+        <member name="M:LinearAlgebra.Matrix.GetBasisMatrix(LinearAlgebra.Space)">
+            <summary>
+            Returns a matrix similar to this matrix with respect to a different basis
+            </summary>
+            <param name="basis">A space representing the change of basis matrix</param>
+        </member>
+        <member name="M:LinearAlgebra.Matrix.CharacteristicPolynomial">
+            <summary>
+            Returns the characteristic polynomial of the matrix
+            </summary>
+        </member>
+        <member name="M:LinearAlgebra.Matrix.GetRealEigenvalues(LinearAlgebra.ComplexNumber[])">
+            <summary>
+            Returns a list of the real eigenvalues of the matrix using Newton's Method (Note: The same eigenvalues can be listed multiple times depending on their respective multiplicities.)
+            </summary>
+            <param name="knownEigenvalues">Any eigenvalues (real or complex) that do not need to be found with Newton's Method (Note: For imaginary eigenvalues, do NOT list their conjugates here.)</param>
+        </member>
+        <member name="M:LinearAlgebra.Matrix.GetComplexEigenvalues(LinearAlgebra.ComplexNumber[])">
+            <summary>
+            Returns a list of all eigenvalues of the matrix using Newton's Method (Note: The same eigenvalues can be listed multiple times depending on their respective multiplicities.)
+            </summary>
+            <param name="knownEigenvalues">Any eigenvalues (real or complex) that do not need to be found with Newton's Method (Note: For imaginary eigenvalues, do NOT list their conjugates here.)</param>
+        </member>
+        <member name="M:LinearAlgebra.Matrix.GetRealEigenvectors(System.Double)">
+            <summary>
+            Returns a list of the real eigenvectors associated with a particular eigenvalue
+            </summary>
+            <param name="eigenvalue">The eigenvalue associated with the eigenvectors to find</param>
+        </member>
+        <member name="M:LinearAlgebra.Matrix.GetComplexEigenvectors(LinearAlgebra.ComplexNumber)">
+            <summary>
+            Returns a list of all eigenvectors associated with a particular eigenvalue
+            </summary>
+            <param name="eigenvalue">The eigenvalue associated with the eigenvectors to find</param>
+        </member>
+        <member name="M:LinearAlgebra.Matrix.GetEigenspace(System.Double)">
+            <summary>
+            Returns the eigenspace of a particular real eigenvalue
+            </summary>
+            <param name="eigenvalue">The eigenvalue associated with the eigenspace to find</param>
+        </member>
+        <member name="M:LinearAlgebra.Matrix.GetRealEigenpairs(LinearAlgebra.ComplexNumber[])">
+            <summary>
+            Returns a summary of the real eigenvalues and eigenvectors of the matrix, stored as eigenpairs
+            </summary>
+            <param name="knownEigenvalues">Any eigenvalues (real or complex) that do not need to be found with Newton's Method (Note: For imaginary eigenvalues, do NOT list their conjugates here.)</param>
+        </member>
+        <member name="M:LinearAlgebra.Matrix.GetComplexEigenpairs(LinearAlgebra.ComplexNumber[])">
+            <summary>
+            Returns a summary of all eigenvalues and eigenvectors of the matrix, stored as eigenpairs
+            </summary>
+            <param name="knownEigenvalues">Any eigenvalues (real or complex) that do not need to be found with Newton's Method (Note: For imaginary eigenvalues, do NOT list their conjugates here.)</param>
+        </member>
+        <member name="M:LinearAlgebra.Matrix.Diagonalize(LinearAlgebra.ComplexNumber[])">
+            <summary>
+            Returns a diagonal matrix similar to this matrix
+            </summary>
+            <param name="knownEigenvalues">Any eigenvalues (real or complex) that do not need to be found with Newton's Method (Note: For imaginary eigenvalues, do NOT list their conjugates here.)</param>
+        </member>
+        <member name="M:LinearAlgebra.Matrix.Diagonalize(LinearAlgebra.Matrix@,LinearAlgebra.ComplexNumber[])">
+            <summary>
+            Returns a diagonal matrix similar to this matrix
+            </summary>
+            <param name="ChangeOfBasisMatrix">The change of basis matrix for the diagonalization</param>
+            <param name="knownEigenvalues">Any eigenvalues (real or complex) that do not need to be found with Newton's Method (Note: For imaginary eigenvalues, do NOT list their conjugates here.)</param>
+        </member>
+        <member name="M:LinearAlgebra.Matrix.DiagonalizeToRotationMatrix(LinearAlgebra.ComplexNumber[])">
+            <summary>
+            Returns a rotation matrix similar to this matrix
+            </summary>
+            <param name="knownEigenvalues">Any eigenvalues (real or complex) that do not need to be found with Newton's Method (Note: For imaginary eigenvalues, do NOT list their conjugates here.)</param>
+        </member>
+        <member name="M:LinearAlgebra.Matrix.DiagonalizeToRotationMatrix(LinearAlgebra.Matrix@,LinearAlgebra.ComplexNumber[])">
+            <summary>
+            Returns a rotation matrix similar to this matrix
+            </summary>
+            <param name="ChangeOfBasisMatrix">The change of basis matrix for the diagonalization</param>
+            <param name="knownEigenvalues">Any eigenvalues (real or complex) that do not need to be found with Newton's Method (Note: For imaginary eigenvalues, do NOT list their conjugates here.)</param>
+        </member>
+        <member name="M:LinearAlgebra.Matrix.ToVectorArray">
+            <summary>
+            Returns a list of the columns of the matrix as vectors
+            </summary>
+        </member>
+        <member name="M:LinearAlgebra.Matrix.RREF(System.Double@)">
+            <summary>
+            Internal method for finding the determinant using row-reduction
+            </summary>
+        </member>
+        <member name="T:LinearAlgebra.CharacteristicMatrix">
+            <summary>
+            An internal class used to find the characteristic polynomial of a matrix
+            </summary>
+        </member>
+        <member name="M:LinearAlgebra.CharacteristicMatrix.#ctor(LinearAlgebra.Polynomial[0:,0:])">
+            <summary>
+            Initializes a characteristic matrix with given elements
+            </summary>
+        </member>
+        <member name="M:LinearAlgebra.CharacteristicMatrix.#ctor(LinearAlgebra.Matrix)">
+            <summary>
+            Initializes a characteristic matrix from a real matrix
+            </summary>
+        </member>
+        <member name="M:LinearAlgebra.CharacteristicMatrix.RemoveRowAndCol(System.Int32,System.Int32)">
+            <summary>
+            Removes a row and column from the matrix (used for finding matrix minors)
+            </summary>
+            <param name="row">The row to remove</param>
+            <param name="col">The column to remove</param>
+        </member>
+        <member name="M:LinearAlgebra.CharacteristicMatrix.CharacteristicPolynomial">
+            <summary>
+            Determines the characteristic polynomial of the matrix by using cofactor expansion
+            </summary>
+        </member>
+        <member name="T:LinearAlgebra.ComplexMatrix">
+            <summary>
+            An internal class used to find complex eigenvectors that correspond to a given eigenvalue
+            </summary>
+        </member>
+        <member name="M:LinearAlgebra.ComplexMatrix.#ctor(LinearAlgebra.ComplexNumber[0:,0:])">
+            <summary>
+            Initializes a complex matrix with given elements
+            </summary>
+        </member>
+        <member name="M:LinearAlgebra.ComplexMatrix.#ctor(LinearAlgebra.Matrix,LinearAlgebra.ComplexNumber)">
+            <summary>
+            Initializes a complex matrix from a real matrix and a complex eigenvalue
+            </summary>
+        </member>
+        <member name="M:LinearAlgebra.ComplexMatrix.RREF">
+            <summary>
+            Finds the reduced row echelon form of this matrix
+            </summary>
+        </member>
+        <member name="M:LinearAlgebra.ComplexMatrix.GetKernelVectors">
+            <summary>
+            Determines the kernel vectors, or eigenvectors, of the matrix
+            </summary>
+        </member>
+        <member name="T:LinearAlgebra.Space">
+            <summary>
+            A linear space representing the spanning set of a particular basis
+            </summary>
+        </member>
+        <member name="P:LinearAlgebra.Space.Basis">
+            <summary>
+            Returns a list of vectors in the stored basis of this linear space
+            </summary>
+        </member>
+        <member name="P:LinearAlgebra.Space.Dimension">
+            <summary>
+            Returns the number of vectors in a basis of this linear space
+            </summary>
+        </member>
+        <member name="P:LinearAlgebra.Space.ParentDimension">
+            <summary>
+            Returns the dimension of each basis vector
+            </summary>
+        </member>
+        <member name="P:LinearAlgebra.Space.ChangeOfBasisMatrix">
+            <summary>
+            Returns the change of basis matrix converting from basis coordinates into standard coordinates
+            </summary>
+        </member>
+        <member name="P:LinearAlgebra.Space.HasOrthonormalBasis">
+            <summary>
+            A boolean that is true if the stored basis is orthonormal
+            </summary>
+        </member>
+        <member name="M:LinearAlgebra.Space.Origin(System.Int32)">
+            <summary>
+            Initializes a space that represents the origin in a specified number of dimensions
+            </summary>
+            <param name="n">The dimension of the space</param>
+        </member>
+        <member name="M:LinearAlgebra.Space.R(System.Int32)">
+            <summary>
+            Initializes a space that includes all vectors of a particular dimension
+            </summary>
+            <param name="n">The dimension of the vectors</param>
+        </member>
+        <member name="M:LinearAlgebra.Space.op_Equality(LinearAlgebra.Space,LinearAlgebra.Space)">
+            <summary>
+            Determinates whether two spaces are equivalent (i.e. a vector is in space A if and only if it is also in space B)
+            </summary>
+        </member>
+        <member name="M:LinearAlgebra.Space.#ctor(System.Int32)">
+            <summary>
+            Initializes an empty space (containing only the origin) that is a subset of all vectors of a particular dimension
+            </summary>
+            <param name="parentDimension">The dimension of the vectors in the space</param>
+        </member>
+        <member name="M:LinearAlgebra.Space.#ctor(LinearAlgebra.Vector[])">
+            <summary>
+            Initializes a space derived from a spanning set of vectors
+            </summary>
+            <param name="spanningSet">The list of vectors spanning the space (Note: it is not required for all vectors in the spanning set to be linearly independent)</param>
+        </member>
+        <member name="M:LinearAlgebra.Space.Contains(LinearAlgebra.Vector)">
+            <summary>
+            Returns true if the space contains a specified vector
+            </summary>
+            <param name="vector">The specified vector</param>
+        </member>
+        <member name="M:LinearAlgebra.Space.ToBasisCoordinates(LinearAlgebra.Vector)">
+            <summary>
+            Converts a vector from standard coordinates into basis coordinates with respect to the stored basis
+            </summary>
+            <param name="vector">The vector to convert into basis coordinates</param>
+        </member>
+        <member name="M:LinearAlgebra.Space.ToStandardCoordinates(LinearAlgebra.Vector)">
+            <summary>
+            Converts a vector from basis coordinates into standard coordinates with respect to the stored basis
+            </summary>
+            <param name="vector">The vector to convert into standard coordinates</param>
+        </member>
+        <member name="M:LinearAlgebra.Space.PerpendicularSpace">
+            <summary>
+            Returns the space perpendicular to this space
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:LinearAlgebra.Space.ProjectFrom(LinearAlgebra.Vector,System.Boolean)">
+            <summary>
+            Projects a vector onto this space
+            </summary>
+            <param name="other">The vector to project onto this space</param>
+            <param name="orthonormalizeThisSpace">Whether this space's basis should be permanently orthonormalized</param>
+        </member>
+        <member name="M:LinearAlgebra.Space.ReflectFrom(LinearAlgebra.Vector,System.Boolean)">
+            <summary>
+            Reflects a vector across this space
+            </summary>
+            <param name="other">The vector to reflect across this space</param>
+            <param name="orthonormalizeThisSpace">Whether this space's basis should be permanently orthonormalized</param>
+        </member>
+        <member name="M:LinearAlgebra.Space.Orthonormalize">
+            <summary>
+            Orthonormalizes this space's basis using the Gram-Schmidt process
+            </summary>
+        </member>
+        <member name="T:LinearAlgebra.Vector">
+            <summary>
+            An ordered collection of doubles representing a vector in n-dimensional space
+            </summary>
+        </member>
+        <member name="P:LinearAlgebra.Vector.Item(System.Int32)">
+            <summary>
+            The method of getting or changing a value at a specified position in the vector
+            </summary>
+            <param name="n">The position of the value to get or set in the range (0 inclusive)</param>
+        </member>
+        <member name="P:LinearAlgebra.Vector.Dimension">
+            <summary>
+            Returns the number of values in the vector
+            </summary>
+        </member>
+        <member name="P:LinearAlgebra.Vector.Magnitude">
+            <summary>
+            Returns the magnitude of the vector
+            </summary>
+        </member>
+        <member name="P:LinearAlgebra.Vector.SquareMagnitude">
+            <summary>
+            Returns the square magnitude of the vector (alternatively v • v)
+            </summary>
+        </member>
+        <member name="M:LinearAlgebra.Vector.Zero(System.Int32)">
+            <summary>
+            Returns the zero vector in a specified number of dimensions
+            </summary>
+            <param name="dim">The dimension of the vector</param>
+        </member>
+        <member name="M:LinearAlgebra.Vector.StandardUnit(System.Int32,System.Int32)">
+            <summary>
+            Returns a standard unit vector in a specified number of dimensions
+            </summary>
+            <param name="pos">The position of the 1 in the vector</param>
+            <param name="dim">The dimension of the vector</param>
+        </member>
+        <member name="M:LinearAlgebra.Vector.ToMatrix(LinearAlgebra.Vector[])">
+            <summary>
+            Converts a list of vectors into a matrix (Note: All vectors in the list must have the same dimension.)
+            </summary>
+        </member>
+        <member name="M:LinearAlgebra.Vector.CrossProduct(LinearAlgebra.Vector,LinearAlgebra.Vector)">
+            <summary>
+            Returns a vector representing the cross product in three dimensions between two vectors
+            </summary>
+        </member>
+        <member name="M:LinearAlgebra.Vector.op_UnaryNegation(LinearAlgebra.Vector)">
+            <summary>
+            Flips the sign of all values in the vector
+            </summary>
+        </member>
+        <member name="M:LinearAlgebra.Vector.op_Addition(LinearAlgebra.Vector,LinearAlgebra.Vector)">
+            <summary>
+            Returns a vector representing the sum of two vectors
+            </summary>
+        </member>
+        <member name="M:LinearAlgebra.Vector.op_Subtraction(LinearAlgebra.Vector,LinearAlgebra.Vector)">
+            <summary>
+            Returns a vector representing the difference between two vectors
+            </summary>
+        </member>
+        <member name="M:LinearAlgebra.Vector.op_Multiply(LinearAlgebra.Vector,System.Double)">
+            <summary>
+            Returns a vector representing the multiplication of a vector with a scalar
+            </summary>
+        </member>
+        <member name="M:LinearAlgebra.Vector.op_Multiply(System.Double,LinearAlgebra.Vector)">
+            <summary>
+            Returns a vector representing the multiplication of a vector with a scalar
+            </summary>
+        </member>
+        <member name="M:LinearAlgebra.Vector.op_Multiply(LinearAlgebra.Vector,LinearAlgebra.Vector)">
+            <summary>
+            Returns the dot product of two vectors
+            </summary>
+        </member>
+        <member name="M:LinearAlgebra.Vector.op_Division(LinearAlgebra.Vector,System.Double)">
+            <summary>
+            Returns a vector representing the multiplication of a vector with the inverse of a scalar
+            </summary>
+        </member>
+        <member name="M:LinearAlgebra.Vector.op_Equality(LinearAlgebra.Vector,LinearAlgebra.Vector)">
+            <summary>
+            Determines whether two vectors are equal (Note: Vectors must have the same dimension and values to be considered equal.)
+            </summary>
+        </member>
+        <member name="M:LinearAlgebra.Vector.#ctor(System.Double[])">
+            <summary>
+            Initializes a vector with the specified values
+            </summary>
+            <param name="elements">Ordered list of values for the vector</param>
+        </member>
+        <member name="M:LinearAlgebra.Vector.AngleWith(LinearAlgebra.Vector)">
+            <summary>
+            Returns the angle in radians between this vector and another vector
+            </summary>
+        </member>
+        <member name="M:LinearAlgebra.Vector.ProjectFrom(LinearAlgebra.Vector)">
+            <summary>
+            Projects another vector onto this vector
+            </summary>
+            <param name="other">The vector to project onto this vector</param>
+        </member>
+        <member name="M:LinearAlgebra.Vector.ReflectFrom(LinearAlgebra.Vector)">
+            <summary>
+            Reflects another vector across this vector
+            </summary>
+            <param name="other">The vector to reflect across this vector</param>
+        </member>
+        <member name="M:LinearAlgebra.Vector.Resize(System.Int32)">
+            <summary>
+            Changes the dimension of a vector, truncating values or adding 0s when necessary
+            </summary>
+            <param name="newDim">The new dimension of the vector</param>
+        </member>
+        <member name="M:LinearAlgebra.Vector.ToArray">
+            <summary>
+            Returns the elements of the vector as a double[] array
+            </summary>
+        </member>
+        <member name="M:LinearAlgebra.Vector.ToMatrix">
+            <summary>
+            Converts the vector into matrix with one column
+            </summary>
+        </member>
+        <member name="M:LinearAlgebra.Vector.ToString">
+            <summary>
+            Represents the vector as a string (ex: "<![CDATA[<1, 1, 1>]]>")
+            </summary>
+        </member>
+        <member name="T:LinearAlgebra.ComplexVector">
+            <summary>
+            A vector containing a real and imaginary part
+            </summary>
+        </member>
+        <member name="F:LinearAlgebra.ComplexVector.realVector">
+            <summary>
+            The real part of the complex vector 
+            </summary>
+        </member>
+        <member name="F:LinearAlgebra.ComplexVector.complexVector">
+            <summary>
+            The imaginary part of the complex vector
+            </summary>
+        </member>
+        <member name="M:LinearAlgebra.ComplexVector.Zero(System.Int32)">
+            <summary>
+            The zero vector in a specified number of dimensions, represented as a complex vector
+            </summary>
+            <param name="dim">The dimension of the vector</param>
+        </member>
+        <member name="M:LinearAlgebra.ComplexVector.op_UnaryNegation(LinearAlgebra.ComplexVector)">
+            <summary>
+            Flips the sign of all values of the complex vector
+            </summary>
+        </member>
+        <member name="M:LinearAlgebra.ComplexVector.op_Addition(LinearAlgebra.ComplexVector,LinearAlgebra.ComplexVector)">
+            <summary>
+            Returns a complex vector representing the sum of two complex vectors
+            </summary>
+        </member>
+        <member name="M:LinearAlgebra.ComplexVector.op_Addition(LinearAlgebra.ComplexVector,LinearAlgebra.Vector)">
+            <summary>
+            Returns a complex vector representing the sum of a complex vector and a real vector
+            </summary>
+        </member>
+        <member name="M:LinearAlgebra.ComplexVector.op_Addition(LinearAlgebra.Vector,LinearAlgebra.ComplexVector)">
+            <summary>
+            Returns a complex vector representing the sum of a complex vector and a real vector
+            </summary>
+        </member>
+        <member name="M:LinearAlgebra.ComplexVector.op_Subtraction(LinearAlgebra.ComplexVector,LinearAlgebra.ComplexVector)">
+            <summary>
+            Returns a complex vector representing the difference between two complex vectors
+            </summary>
+        </member>
+        <member name="M:LinearAlgebra.ComplexVector.op_Subtraction(LinearAlgebra.ComplexVector,LinearAlgebra.Vector)">
+            <summary>
+            Returns a complex vector representing the difference between a complex vector and a real vector
+            </summary>
+        </member>
+        <member name="M:LinearAlgebra.ComplexVector.op_Subtraction(LinearAlgebra.Vector,LinearAlgebra.ComplexVector)">
+            <summary>
+            Returns a complex vector representing the difference between a real vector and a complex vector
+            </summary>
+        </member>
+        <member name="M:LinearAlgebra.ComplexVector.#ctor(LinearAlgebra.Vector,LinearAlgebra.Vector)">
+            <summary>
+            Initializes a complex vector given a real and imaginary part
+            </summary>
+            <param name="realVector">The real part of the complex vector</param>
+            <param name="complexVector">The imaginary part of the complex vector</param>
+        </member>
+    </members>
+</doc>
